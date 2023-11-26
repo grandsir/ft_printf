@@ -5,7 +5,7 @@ ft_isalnum ft_isprint ft_memcpy ft_putendl ft_strchr ft_strlcat ft_strncmp ft_su
 
 BONUS_DOTC = ft_lstnew ft_lstadd_front ft_lstlast ft_lstsize ft_lstadd_back ft_lstdelone ft_lstclear ft_lstiter ft_lstmap
 
-EXTRA_FILES = ft_putchar_len ft_putstr_len
+EXTRA_FILES = ft_putchar_len ft_putstr_len ft_putnbr_len ft_log10
 
 EXTRA_DIR = extra/
 OBJECTS_DIR = objects/
@@ -23,6 +23,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I
 
+CREATE_OBJ = .cache_exists
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -31,10 +32,12 @@ $(NAME): $(OBJ)
 bonus: $(BONUS_OBJ)
 	ar rcs $(NAME) $(BONUS_OBJ)
 
-$(OBJECTS_DIR)%.o : $(SRC_DIR)%.c 
-	@mkdir -p $(OBJECTS_DIR)
-	@mkdir -p $(OBJECTS_DIR)$(EXTRA_DIR)
+$(OBJECTS_DIR)%.o : $(SRC_DIR)%.c | $(CREATE_OBJ)
 	$(CC) $(CFLAGS) $(INCLUDE_DIR) -c $< -o $@
+
+$(CREATE_OBJ):
+	mkdir -p $(OBJECTS_DIR)
+	mkdir -p $(OBJECTS_DIR)$(EXTRA_DIR)
 
 clean:
 	$(RM) -rf $(OBJECTS_DIR)

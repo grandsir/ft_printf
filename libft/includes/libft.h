@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:32:48 by databey           #+#    #+#             */
-/*   Updated: 2023/11/13 16:59:22 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/26 01:39:25 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	ft_bzero(void *s, size_t n);
 int		ft_putchar_len(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+int		ft_log10(unsigned	int num);
 int		ft_atoi(const char *str);
-
 int		ft_lstsize(t_list *lst);
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
@@ -62,7 +62,6 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_isascii(int c);
 int		ft_putnbr_len(int n);
-int		ft_print_hex(unsigned int num, const char format);
 size_t	ft_putstr_len(char *str);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);

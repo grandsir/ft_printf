@@ -6,13 +6,13 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:58:21 by databey           #+#    #+#             */
-/*   Updated: 2023/10/21 16:15:13 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/26 01:52:28 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_log10(int n)
+static int	itoa_log10(int n)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 		sign = 1;
 		n *= -1;
 	}
-	base = ft_log10(n) + 1 + sign;
+	base = itoa_log10(n) + 1 + sign;
 	str = (char *)malloc(base + 1);
 	if (str == NULL)
 		return (NULL);
