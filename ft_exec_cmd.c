@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:27:23 by databey           #+#    #+#             */
-/*   Updated: 2023/11/26 03:56:18 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:44:55 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_exec_cmd(va_list *list, const char format)
 	else if (format == 's')
 		total += ft_putstr_len(va_arg(*list, char *));
 	else if (format == 'p')
-		return (0);
+		total += ft_print_ptr(va_arg(*list, unsigned long long));
 	else if (format == 'd' || format == 'i')
 		total += ft_putnbr_len(va_arg(*list, int));
 	else if (format == 'u')

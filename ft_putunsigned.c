@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 01:20:19 by databey           #+#    #+#             */
-/*   Updated: 2023/11/26 01:43:25 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:58:45 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,13 @@ int	ft_put_unsigned(unsigned int n)
 	print_length = 0;
 	if (!n)
 		print_length += ft_putchar_len('0');
-	else
+	if (print_length == -1)
+		return (print_length);
+	if (n)
 	{
 		num = ft_uitoa(n);
+		if (!num)
+			return (-1);
 		print_length += ft_putstr_len(num);
 		free(num);
 	}

@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:37:02 by databey           #+#    #+#             */
-/*   Updated: 2023/11/26 03:55:46 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:46:03 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,20 @@ int	ft_printf(const char *str, ...)
 	va_list	list;
 	int		len;
 	int		i;
+	int		tmp;
 
 	va_start(list, str);
 	len = 0;
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (str[++i])
 	{
 		if (str[i] == '%')
-			len += ft_exec_cmd(&list, str[++i]);
+			tmp = ft_exec_cmd(&list, str[++i]);
 		else
-			len += ft_putchar_len(str[i]);
-		i++;
+			tmp = ft_putchar_len(str[i]);
+		if (tmp == -1)
+			return (-1);
+		len += tmp;
 	}
 	va_end(list);
 	return (len);

@@ -6,7 +6,7 @@
 #    By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 17:34:38 by databey           #+#    #+#              #
-#    Updated: 2023/11/26 01:45:21 by databey          ###   ########.fr        #
+#    Updated: 2023/11/30 14:16:21 by databey          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC_DIR		= src/
 OBJ_DIR		= obj/
 OBJ = $(SRC:.c=.o)
 
-SRC_FILES	=	ft_printf ft_exec_cmd ft_putunsigned ft_print_hex
+SRC_FILES	=	ft_printf ft_exec_cmd ft_putunsigned ft_print_hex ft_print_ptr
 
 SRC 		= 	$(addsuffix .c, $(SRC_FILES))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

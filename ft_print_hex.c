@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:13:12 by databey           #+#    #+#             */
-/*   Updated: 2023/11/26 01:45:23 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/30 17:56:40 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,43 @@ static int	ft_hex_len(unsigned	int num)
 	return (len);
 }
 
-static void	ft_put_hex(unsigned int num, const char format)
+static int	ft_put_hex(unsigned int num, const char format)
 {
+	int	n;
+
 	if (num >= 16)
 	{
-		ft_put_hex(num / 16, format);
-		ft_put_hex(num % 16, format);
+		n = ft_put_hex(num / 16, format);
+		if (n == -1)
+			return (-1);
+		n = ft_put_hex(num % 16, format);
 	}
 	else
 	{
 		if (num <= 9)
-			ft_putchar_fd((num + '0'), 1);
+			n = ft_putchar_len((num + '0'));
 		else
 		{
 			if (format == 'x')
-				ft_putchar_fd((num - 10 + 'a'), 1);
+				n = ft_putchar_len((num - 10 + 'a'));
 			if (format == 'X')
-				ft_putchar_fd((num - 10 + 'A'), 1);
+				n = ft_putchar_len((num - 10 + 'A'));
 		}
+		if (n == -1)
+			return (-1);
 	}
+	return (0);
 }
 
 int	ft_print_hex(unsigned int num, const char format)
 {
+	int	n;
+
 	if (num == 0)
 		return (ft_putchar_len('0'));
 	else
-		ft_put_hex(num, format);
+		n = ft_put_hex(num, format);
+	if (n == -1)
+		return (n);
 	return (ft_hex_len(num));
 }

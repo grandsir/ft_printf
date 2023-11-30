@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:54:19 by databey           #+#    #+#             */
-/*   Updated: 2023/11/26 01:21:25 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:53:09 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,23 @@
 
 size_t	ft_putstr_len(char *str)
 {
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	int	tmp;
+	int	len;
+
+	len = 0;
+	if (str == NULL)
+	{
+		tmp = ft_putstr_len("(null)");
+		if (tmp == -1)
+			return (tmp);
+		return (6);
+	}
+	while (*str)
+	{
+		tmp = ft_putchar_len(*str++);
+		if (tmp == -1)
+			return (-1);
+		len++;
+	}
+	return (len);
 }

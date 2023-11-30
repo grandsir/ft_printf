@@ -6,14 +6,13 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:55:53 by databey           #+#    #+#             */
-/*   Updated: 2023/11/26 01:21:26 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/30 16:40:44 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 int	ft_putchar_len(int c)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }

@@ -6,7 +6,7 @@
 /*   By: databey <databey@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:37:12 by databey           #+#    #+#             */
-/*   Updated: 2023/11/26 03:55:20 by databey          ###   ########.fr       */
+/*   Updated: 2023/11/30 14:16:39 by databey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int	ft_printf(const char *str, ...);
 int	ft_exec_cmd(va_list *args, const char format);
 int	ft_print_hex(unsigned int num, const char format);
 int	ft_put_unsigned(unsigned int n);
+int	ft_print_ptr(unsigned long long num);
 
 #endif
